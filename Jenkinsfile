@@ -1,35 +1,36 @@
 pipeline
 {
  agent any
-  tools { 
+ /** tools { 
         maven 'Maven 3.5.0' 
         jdk 'jdk8' 
-    }
+    }*/
    stages {
             stage('Repo phase'){
              steps{
                echo 'getting code from repo'
-              git "https://github.com/Anushagitacc/testpipelineproject.git"
+              git "https://github.com/Anushagitacc/sampledeploywebapp.git"
                   }
             }
-        stage ('Initialize') {
+        /**stage ('Initialize') {
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
             }
-        }
+        }*/
             stage('build phase'){
              
              steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+              mvn clean install
+                //sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
-            post {
+           /** post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
                 }
-            }
+            }*/
             
             }
             stage('Testing Phase'){
