@@ -1,4 +1,3 @@
-def mvnHome
 pipeline
 {
  agent any
@@ -12,9 +11,7 @@ pipeline
                echo 'getting code from repo'
               git "https://github.com/Anushagitacc/testpipelineproject.git"
                   }
-             }
-    
-    stages {
+            }
         stage ('Initialize') {
             steps {
                 sh '''
