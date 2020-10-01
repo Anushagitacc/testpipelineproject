@@ -12,7 +12,7 @@ pipeline
             steps
               {
               echo 'Building the code'
-             sh "mvn -Dmaven.test.failure.ignore=true clean package"
+             mvn install package
                }
             }
             stage('Testing Phase'){
