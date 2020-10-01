@@ -23,7 +23,8 @@ pipeline
             stage('build phase'){
              
              steps {
-              mvn clean install
+               bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+             // mvn clean install
                 //sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
            // post {
