@@ -1,10 +1,6 @@
 pipeline
 {
  agent any
- tools
- {
-  maven 'mvn3.5.0'
- }
    stages {
             stage('Repo phase'){
              steps{
