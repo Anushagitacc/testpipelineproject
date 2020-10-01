@@ -12,9 +12,8 @@ pipeline
             steps
               {
               echo 'Building the code'
-               {
-             mvn install package
-              }
+                "mvn install package"
+              
                }
             }
             stage('Testing Phase'){
