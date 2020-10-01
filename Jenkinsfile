@@ -1,3 +1,4 @@
+def mvnHome
 pipeline
 {
  agent any
@@ -9,12 +10,17 @@ pipeline
                   }
              }
             stage('build phase'){
-            steps
-              {
-             
-                "mvn install package"
-              
-               }
+            mvnHome = tool 'M3'
+               steps{
+                    withEnv(["MVN_HOME=$mvnHome"]) {
+                       if (isUnix()) {
+                                sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
+                                     } 
+                                else {
+                                  bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+                                     }
+                                                    }
+                       }
             }
             stage('Testing Phase'){
             steps
