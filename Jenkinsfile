@@ -5,6 +5,7 @@ pipeline
             stage('Repo phase'){
              steps{
                echo 'getting code from repo'
+              git "https://github.com/Anushagitacc/testpipelineproject.git"
                   }
              }
             stage('build phase'){
