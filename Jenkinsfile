@@ -1,6 +1,10 @@
 pipeline
 {
  agent any
+ tools
+ {
+  maven "M3"
+ }
    stages {
             stage('Repo phase'){
              steps{
@@ -12,15 +16,8 @@ pipeline
             steps
               {
               echo 'Building the code'
-               script
-                 {
-                    withMaven(globalMavenSettingsConfig: "$mavenConfig", jdk: "$JDKVersion", maven: "$mavenLocation")
-                      {
-                         mvn clean install
-                      }
-                 }
-            }
-            }
+             sh "mvn -Dmaven.test.failure.ignore=true clean package"
+               }
             stage('Testing Phase'){
             steps
                 {
