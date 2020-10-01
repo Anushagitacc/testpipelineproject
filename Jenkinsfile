@@ -2,6 +2,10 @@ def mvnHome
 pipeline
 {
  agent any
+  tools { 
+        maven 'Maven 3.5.0' 
+        jdk 'jdk8' 
+    }
    stages {
             stage('Repo phase'){
              steps{
@@ -9,18 +13,27 @@ pipeline
               git "https://github.com/Anushagitacc/testpipelineproject.git"
                   }
              }
+    
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
             stage('build phase'){
-            mvnHome = tool 'M3'
-               steps{
-                    withEnv(["MVN_HOME=$mvnHome"]) {
-                       if (isUnix()) {
-                                sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
-                                     } 
-                                else {
-                                  bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-                                     }
-                                                    }
-                       }
+             
+             steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
+            
             }
             stage('Testing Phase'){
             steps
