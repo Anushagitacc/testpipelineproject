@@ -12,7 +12,13 @@ pipeline
             steps
               {
               echo 'Building the code'
-              }
+               script
+                 {
+                    withMaven(globalMavenSettingsConfig: "$mavenConfig", jdk: "$JDKVersion", maven: "$mavenLocation")
+                      {
+                         mvn clean install
+                      }
+                 }
             }
             stage('Testing Phase'){
             steps
