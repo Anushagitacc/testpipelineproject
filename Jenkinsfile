@@ -20,6 +20,7 @@ pipeline
                       }
                  }
             }
+            }
             stage('Testing Phase'){
             steps
                 {
@@ -34,4 +35,4 @@ pipeline
              }
         }
 }
-}
+
