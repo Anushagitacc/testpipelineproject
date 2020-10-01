@@ -18,6 +18,7 @@ pipeline
               echo 'Building the code'
              sh "mvn -Dmaven.test.failure.ignore=true clean package"
                }
+            }
             stage('Testing Phase'){
             steps
                 {
