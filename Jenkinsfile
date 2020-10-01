@@ -11,7 +11,7 @@ pipeline
             stage('build phase'){
             steps
               {
-              echo 'Building the code'
+             
                 "mvn install package"
               
                }
