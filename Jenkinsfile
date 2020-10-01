@@ -5,10 +5,10 @@ pipeline
         maven 'Maven 3.5.0' 
         jdk 'jdk8' 
     }*/
- environment
+/** environment
  {
-  PATH = C:\Program Files\apache-maven-3.6.3\bin:$PATH
- }
+  PATH =C:\Program Files\apache-maven-3.6.3\bin:$PATH
+ }*/
    stages {
             stage('Repo phase'){
              steps{
@@ -27,7 +27,7 @@ pipeline
             stage('build phase'){
              
              steps {
-               bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+               bat(/"%MAVEN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
              // mvn clean install
                 //sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
