@@ -7,7 +7,7 @@ pipeline
     }*/
  environment
  {
-  PATH =C:\Program Files\apache-maven-3.6.3\bin:$PATH
+  PATH =C\Program Files\apache-maven-3.6.3\bin:$PATH
  }
    stages {
             stage('Repo phase'){
