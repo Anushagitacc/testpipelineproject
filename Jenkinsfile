@@ -47,7 +47,11 @@ pipeline
             stage('Deploy Phase'){
             steps
                 {
-               echo 'Deploying the code'
+             //  echo 'Deploying the code'
+                 sshagent(['deploy_user'])
+                 {
+                    bat " ssh -o StrictHostKeyChecking=no testcicdapp\0.0.1-SNAPSHOT\testcicdapp-0.0.1-SNAPSHOT.war ec2-user@3.134.76.230:/opt/tomcat/webapp"
+                  }
                }
              }
         }
