@@ -1,7 +1,9 @@
 pipeline
 {
   agent any
-  
+  environment{
+  env="${enironments}"
+  }
     stages{
         stage('accesing the jnkinsfile'){
             steps{
