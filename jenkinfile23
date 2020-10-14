@@ -3,11 +3,13 @@ pipeline
   agent any
   environment{
   env="${enironments}"
+  TEST_PREFIX = "test-IMAGE"
+        TEST_IMAGE = "${env.TEST_PREFIX}:${env.BUILD_NUMBER}"
   }
     stages{
      stage('checking the environment'){
             steps{
-                  if(env.equals("DEV")){
+                 /* if(env.equals("DEV")){
                   echo 'it is a dev Environment'
                   }
                   else if(env.equals("jhfkjfk")){
@@ -16,7 +18,9 @@ pipeline
                   else{
                   echo 'invalid'
                   }
-                 }
+                 } */
+                 
+                 echo'$TEST_IMAGE'
                                           }
         stage('accesing the jnkinsfile'){
             steps{
