@@ -7,12 +7,15 @@ pipeline
     stages{
      stage('checking the environment'){
             steps{
-                  if(env.equals("DEV"))
+                  if(env.equals("DEV")){
                   echo 'it is a dev Environment'
-                  else if(env.equals("jhfkjfk"))
+                  }
+                  else if(env.equals("jhfkjfk")){
                   echo 'select valid environment'
-                  else
+                  }
+                  else{
                   echo 'invalid'
+                  }
                  }
                                           }
         stage('accesing the jnkinsfile'){
