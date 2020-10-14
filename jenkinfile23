@@ -1,0 +1,11 @@
+pipeline{
+agnt any
+stages{
+stage{
+steps{
+echo 'saample pipeline job'
+}
+}
+}
+
+}
