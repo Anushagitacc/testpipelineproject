@@ -1,7 +1,7 @@
 pipeline
 {
   agent any
-  {
+  
     stages{
         stage('accesing the jnkinsfile'){
             steps{
@@ -10,5 +10,5 @@ pipeline
                                           }
            }
 
-      }
+      
 }
