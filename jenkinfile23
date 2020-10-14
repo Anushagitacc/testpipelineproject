@@ -5,6 +5,16 @@ pipeline
   env="${enironments}"
   }
     stages{
+     stage('checking the environment'){
+            steps{
+                  if(env.equals("DEV"))
+                  echo 'it is a dev Environment'
+                  else if(env.equals("jhfkjfk"))
+                  echo 'select valid environment'
+                  else
+                  echo 'invalid'
+                 }
+                                          }
         stage('accesing the jnkinsfile'){
             steps{
                   echo 'saample pipeline job'
