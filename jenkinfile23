@@ -21,6 +21,7 @@ pipeline
                  } */
                  
                  echo'$TEST_IMAGE'
+                 }
                                           }
         stage('accesing the jnkinsfile'){
             steps{
